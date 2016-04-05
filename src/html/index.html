@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+    <title>Vue demo</title>
+    <script type="text/javascript">!function(){var e=document.documentElement,t=window.devicePixelRatio||1,i=window.screen.width,n=window.screen.height,a=e.clientWidth-e.clientHeight,d=i-n;/(iPhone|iPod|iPad).*YY\/[0-9.]+/.test(navigator.userAgent)&&(t=1),a/Math.abs(a)!=d/Math.abs(d)&&(i=window.screen.height,n=window.screen.width);var o=i===e.clientWidth?t:1,r=Math.floor(i*o),s=Math.floor(n*o),h=r>s?s:r,c=r>s?r:s,l=document.createElement("style"),m=document.querySelector('meta[name="viewport"]'),w=h/10,p=c/10,u=1/t,g=["width="+h,"initial-scale="+u,"maximum-scale="+u];/UCBrowser|UCWEB/.test(navigator.userAgent)||g.push("target-densitydpi=device-dpi"),m.setAttribute("content",g.join(",")),e.setAttribute("data-dpr",t),e.firstElementChild.appendChild(l),l.innerHTML=["html{font-size:"+w+"px!important;}","@media screen and (min-width: "+c+"px){","html{font-size:"+p+"px!important;}","}"].join("")}();</script>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+    <div id="main">
+        <div>
+            <!-- <textarea id="ppls" placeholder="请输入所有人的名字..."></textarea> -->
+            <textarea id="ppls" v-model="ppls" v-on:keyup.enter="run" placeholder="请输入所有人的名字..."></textarea>
+        </div>
+        <div>
+            <!-- <button id="runBtn" class="disabled">分组</button> -->
+            <button v-on:click="run" class="ui-btn {{isEnabled? 'enabled' : ''}}">分组</button>
+        </div>
+        <ul id="result">
+            <li v-for="team in teams">
+                <div class="line"></div>
+                <div class="names" v-for="member in team">{{ member }}</div>
+            </li>
+        </ul>
+    </div>
+    <!-- 
+    <script type="text/javascript" data-main="/js/testVue/index" src="/js/lib/requirejs/require.js"></script> -->
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <script type="text/javascript" src="../js/index.js"></script>
+</body>
+</html>
